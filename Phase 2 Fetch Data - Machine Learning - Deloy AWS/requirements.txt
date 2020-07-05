@@ -1,0 +1,7 @@
+flask
+pandas
+scipy
+matplotlib
+sklearn
+pyrebase4
+
