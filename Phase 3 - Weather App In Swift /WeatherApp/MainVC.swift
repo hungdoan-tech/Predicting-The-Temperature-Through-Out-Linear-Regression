@@ -16,11 +16,6 @@ class MainVC: UIViewController {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     
-    struct CurrentTemperature : Codable
-    {
-        let Current: Float
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
@@ -31,15 +26,15 @@ class MainVC: UIViewController {
     
     func UpdateTemperature() {
         let urlObj = URL(string:"http://ec2-52-15-234-97.us-east-2.compute.amazonaws.com:8090/")!
-        var temps:CurrentTemperature?
+        var temps:CurrentTemperatureModel?
         let session = URLSession.shared
         let task = session.dataTask(with: urlObj)
         {
             (data,response,error)  in
             do {
-                temps = try JSONDecoder().decode(CurrentTemperature.self, from: data!)
+                temps = try JSONDecoder().decode(CurrentTemperatureModel.self, from: data!)
                 DispatchQueue.main.async {
-                     self.temperatureLabel.text = String(temps!.Current)
+                    self.temperatureLabel.text = String(temps!.Current_Temperature)
                 }
             }
             catch

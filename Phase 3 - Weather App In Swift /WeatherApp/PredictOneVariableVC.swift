@@ -21,12 +21,12 @@ class PredictOneVariableVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        // set up keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.inputTemperatureTextField.keyboardType = UIKeyboardType.decimalPad
         
+        //hidden codition image
         self.nextOneConditionImageView.isHidden = true
         self.nextTemperatureLabel.isHidden = true
         self.nextOneDegreeLabel.isHidden = true
@@ -46,27 +46,6 @@ class PredictOneVariableVC: UIViewController {
         {
             self.inputTemperatureTextField.isHidden = true
             self.inputTemperatureLabel.isHidden = true
-        }
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        {
-//            if self.view.frame.origin.y == 0
-//            {
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification)
-    {
-        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil
-        {
-//            if self.view.frame.origin.y != 0
-//            {
-//                self.view.frame.origin.y = 0
-//            }
         }
     }
     
