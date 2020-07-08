@@ -18,7 +18,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
+        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { timer in
             self.UpdateTemperature()
         }
     }

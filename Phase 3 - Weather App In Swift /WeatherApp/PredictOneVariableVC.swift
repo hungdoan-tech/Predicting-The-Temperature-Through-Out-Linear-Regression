@@ -10,13 +10,11 @@ import UIKit
 
 class PredictOneVariableVC: UIViewController {
     
-    @IBOutlet weak var inputOrNotLabel: UILabel!
-    @IBOutlet weak var inputOrNotSwitch: UISwitch!
     @IBOutlet weak var inputTemperatureLabel: UILabel!
     @IBOutlet weak var inputTemperatureTextField: UITextField!
+    @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var nextTemperatureLabel: UILabel!
-    @IBOutlet weak var nextOneDegreeLabel: UILabel!
-    @IBOutlet weak var nextOneConditionImageView: UIImageView!
+    @IBOutlet weak var degreeLabel: UILabel!
        
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +25,9 @@ class PredictOneVariableVC: UIViewController {
         self.inputTemperatureTextField.keyboardType = UIKeyboardType.decimalPad
         
         //hidden codition image
-        self.nextOneConditionImageView.isHidden = true
+        self.conditionImageView.isHidden = true
         self.nextTemperatureLabel.isHidden = true
-        self.nextOneDegreeLabel.isHidden = true
+        self.degreeLabel.isHidden = true
     }
     
     @objc func dismissKeyboard() {
@@ -91,9 +89,9 @@ class PredictOneVariableVC: UIViewController {
                     temps = try JSONDecoder().decode(NextTemperatureModel.self, from: data!)
                     DispatchQueue.main.async {
                         self.nextTemperatureLabel.text = String(temps!.Next_Temperature)
+                        self.conditionImageView.isHidden = false
                         self.nextTemperatureLabel.isHidden = false
-                        self.nextOneConditionImageView.isHidden = false
-                        self.nextOneDegreeLabel.isHidden = false
+                        self.degreeLabel.isHidden = false
                         }
                 }
                 else {
@@ -101,9 +99,9 @@ class PredictOneVariableVC: UIViewController {
                     temps = try JSONDecoder().decode(NextOneVariableAutoTemperatureModel.self, from: data!)
                     DispatchQueue.main.async {
                         self.nextTemperatureLabel.text = String(temps!.Next_Temperature)
+                        self.conditionImageView.isHidden = false
                         self.nextTemperatureLabel.isHidden = false
-                        self.nextOneConditionImageView.isHidden = false
-                        self.nextOneDegreeLabel.isHidden = false
+                        self.degreeLabel.isHidden = false
                         }
                 }
             }
