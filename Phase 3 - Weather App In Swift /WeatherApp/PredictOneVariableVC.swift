@@ -10,16 +10,13 @@ import UIKit
 
 class PredictOneVariableVC: UIViewController {
     
-    
+    @IBOutlet weak var inputOrNotLabel: UILabel!
+    @IBOutlet weak var inputOrNotSwitch: UISwitch!
+    @IBOutlet weak var inputTemperatureLabel: UILabel!
     @IBOutlet weak var inputTemperatureTextField: UITextField!
     @IBOutlet weak var nextTemperatureLabel: UILabel!
-    @IBOutlet weak var nextOneConditionImageView: UIImageView!
     @IBOutlet weak var nextOneDegreeLabel: UILabel!
-    
-    struct NextTemperature : Codable
-    {
-       let Next: Float
-    }
+    @IBOutlet weak var nextOneConditionImageView: UIImageView!
        
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +26,7 @@ class PredictOneVariableVC: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.inputTemperatureTextField.keyboardType = UIKeyboardType.decimalPad
+        
         self.nextOneConditionImageView.isHidden = true
         self.nextTemperatureLabel.isHidden = true
         self.nextOneDegreeLabel.isHidden = true
@@ -36,6 +34,19 @@ class PredictOneVariableVC: UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @IBAction func inputOrNotChanged(_ sender: Any) {
+        if (self.inputTemperatureTextField.isHidden == true)
+        {
+            self.inputTemperatureTextField.isHidden = false
+            self.inputTemperatureLabel.isHidden = false
+        }
+        else
+        {
+            self.inputTemperatureTextField.isHidden = true
+            self.inputTemperatureLabel.isHidden = true
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -60,31 +71,68 @@ class PredictOneVariableVC: UIViewController {
     }
     
     @IBAction func predictButtonClicked(_ sender: Any) {
-        UpdateTemperature()
+        if(self.inputTemperatureTextField.isHidden == true)
+        {
+            updateTemperature(isInput:false)
+        }
+        else
+        {
+            updateTemperature(isInput:true)
+        }
     }
     
-    func UpdateTemperature() {
-           let inputTemperature = Float(self.inputTemperatureTextField.text!)
-           let urlObj = URL(string:"http://ec2-52-15-234-97.us-east-2.compute.amazonaws.com:8090/iot/\(inputTemperature!)")!
-           var temps:NextTemperature?
-           let session = URLSession.shared
-           let task = session.dataTask(with: urlObj)
-           {
-               (data,response,error)  in
-               do {
-                   temps = try JSONDecoder().decode(NextTemperature.self, from: data!)
-                   DispatchQueue.main.async {
-                        self.nextTemperatureLabel.text = String(temps!.Next)
+    func updateTemperature(isInput:Bool) {
+        let urlObj:URL = createURLObject(isInput: isInput)
+        callAPI(isInput: isInput, urlObj: urlObj)
+    }
+    
+    func createURLObject(isInput:Bool) -> URL
+    {
+        var urlObj:URL
+        if(isInput==true){
+        let inputTemperature = Float(self.inputTemperatureTextField.text!)
+           urlObj = URL(string:"http://ec2-52-15-234-97.us-east-2.compute.amazonaws.com:8090/iot/\(inputTemperature!)")!
+        }
+        else{
+           urlObj = URL(string:"http://ec2-52-15-234-97.us-east-2.compute.amazonaws.com:8090/autoiot")!
+        }
+        return urlObj
+    }
+    
+    func callAPI(isInput:Bool, urlObj:URL)
+    {
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlObj)
+        {
+            (data,response,error)  in
+            do {
+                if(isInput==true)
+                {
+                    var temps:NextTemperatureModel?
+                    temps = try JSONDecoder().decode(NextTemperatureModel.self, from: data!)
+                    DispatchQueue.main.async {
+                        self.nextTemperatureLabel.text = String(temps!.Next_Temperature)
                         self.nextTemperatureLabel.isHidden = false
                         self.nextOneConditionImageView.isHidden = false
                         self.nextOneDegreeLabel.isHidden = false
-                   }
-               }
-               catch
-               {
-                   print("error");
-               }
-           }
-           task.resume()
-       }
+                        }
+                }
+                else {
+                    var temps:NextOneVariableAutoTemperatureModel?
+                    temps = try JSONDecoder().decode(NextOneVariableAutoTemperatureModel.self, from: data!)
+                    DispatchQueue.main.async {
+                        self.nextTemperatureLabel.text = String(temps!.Next_Temperature)
+                        self.nextTemperatureLabel.isHidden = false
+                        self.nextOneConditionImageView.isHidden = false
+                        self.nextOneDegreeLabel.isHidden = false
+                        }
+                }
+            }
+            catch
+            {
+                print("error");
+            }
+        }
+        task.resume()
+    }
 }

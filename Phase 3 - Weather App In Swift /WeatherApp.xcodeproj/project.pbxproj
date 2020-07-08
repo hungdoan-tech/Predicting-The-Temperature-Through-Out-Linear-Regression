@@ -15,6 +15,10 @@
 		F6099A0124B1B3DA0018B289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F60999FF24B1B3DA0018B289 /* LaunchScreen.storyboard */; };
 		F62E5A7424B1F31B008DAC03 /* PredictOneVariableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E5A7324B1F31B008DAC03 /* PredictOneVariableVC.swift */; };
 		F62E5A7624B1FC9E008DAC03 /* PredictTwoVariableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E5A7524B1FC9E008DAC03 /* PredictTwoVariableVC.swift */; };
+		F643DD3224B6C1BE0061AA0D /* NextTemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643DD3124B6C1BE0061AA0D /* NextTemperatureModel.swift */; };
+		F65F8E9524B66234006F5A05 /* NextTwoVariableAutoTemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F8E9424B66234006F5A05 /* NextTwoVariableAutoTemperatureModel.swift */; };
+		F65F8E9724B6628A006F5A05 /* CurrentTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F8E9624B6628A006F5A05 /* CurrentTemperature.swift */; };
+		F65F8E9924B66A53006F5A05 /* NextOneVariableAutoTemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F8E9824B66A53006F5A05 /* NextOneVariableAutoTemperatureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		F6099A0224B1B3DA0018B289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F62E5A7324B1F31B008DAC03 /* PredictOneVariableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictOneVariableVC.swift; sourceTree = "<group>"; };
 		F62E5A7524B1FC9E008DAC03 /* PredictTwoVariableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictTwoVariableVC.swift; sourceTree = "<group>"; };
+		F643DD3124B6C1BE0061AA0D /* NextTemperatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTemperatureModel.swift; sourceTree = "<group>"; };
+		F65F8E9424B66234006F5A05 /* NextTwoVariableAutoTemperatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTwoVariableAutoTemperatureModel.swift; sourceTree = "<group>"; };
+		F65F8E9624B6628A006F5A05 /* CurrentTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperature.swift; sourceTree = "<group>"; };
+		F65F8E9824B66A53006F5A05 /* NextOneVariableAutoTemperatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextOneVariableAutoTemperatureModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				F6099A0224B1B3DA0018B289 /* Info.plist */,
 				F62E5A7324B1F31B008DAC03 /* PredictOneVariableVC.swift */,
 				F62E5A7524B1FC9E008DAC03 /* PredictTwoVariableVC.swift */,
+				F643DD3124B6C1BE0061AA0D /* NextTemperatureModel.swift */,
+				F65F8E9424B66234006F5A05 /* NextTwoVariableAutoTemperatureModel.swift */,
+				F65F8E9624B6628A006F5A05 /* CurrentTemperature.swift */,
+				F65F8E9824B66A53006F5A05 /* NextOneVariableAutoTemperatureModel.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -144,9 +156,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65F8E9924B66A53006F5A05 /* NextOneVariableAutoTemperatureModel.swift in Sources */,
 				F60999F924B1B3D90018B289 /* MainVC.swift in Sources */,
 				F62E5A7424B1F31B008DAC03 /* PredictOneVariableVC.swift in Sources */,
+				F65F8E9524B66234006F5A05 /* NextTwoVariableAutoTemperatureModel.swift in Sources */,
 				F62E5A7624B1FC9E008DAC03 /* PredictTwoVariableVC.swift in Sources */,
+				F643DD3224B6C1BE0061AA0D /* NextTemperatureModel.swift in Sources */,
+				F65F8E9724B6628A006F5A05 /* CurrentTemperature.swift in Sources */,
 				F60999F524B1B3D90018B289 /* AppDelegate.swift in Sources */,
 				F60999F724B1B3D90018B289 /* SceneDelegate.swift in Sources */,
 			);
