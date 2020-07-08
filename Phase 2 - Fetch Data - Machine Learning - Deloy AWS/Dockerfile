@@ -1,5 +1,5 @@
 FROM python:latest
-#The python image uses /usr/src/app as the default run directory:
+#The python image uses current dir . in docker image as the default run directory:
 WORKDIR .
 #Copy from the local current dir to the image workdir:
 COPY . .
