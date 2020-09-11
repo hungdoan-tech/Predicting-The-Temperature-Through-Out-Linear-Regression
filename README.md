@@ -1,11 +1,9 @@
-Nhóm N9
+Group 9
   17110154  Đoàn Quốc Hùng  Team Leader,  Developer
   17110163  Trương Minh Khoa  Developer, Tester
   17150086  Tôn Thất Tấn  Developer, Reporter
   17110238  Pham Ngọc Tiến  Tester, Designer
 
-Xây dựng gói thu thập dữ liệu nền dựa trên IoT ghi nhận nhiệt độ và độ ẩm theo
-thời gian, sau đó đưa dữ liệu lên FireBase và lưu trữ dạng Real Time Data
 
 # Sending-Temperature-and-Humidity-sensor-data-to-Firebase-Real-Time-Database-Phase-One
 + Technologies
@@ -32,3 +30,5 @@ thời gian, sau đó đưa dữ liệu lên FireBase và lưu trữ dạng Real
 - Installing library for programming firebase API
 - Sketch -> Include Library -> Add .Zip Library -> Add: Firebase ESP8266 Client
 - Sketch -> Include Library -> Manage Libraries -> Search and install: ArduinoJson
+
+# To be continue, group memeber will write out about other phases later
