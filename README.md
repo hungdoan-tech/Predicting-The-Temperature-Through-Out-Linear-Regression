@@ -1,8 +1,8 @@
-Group 9
-  17110154  Đoàn Quốc Hùng  Team Leader,  Developer
-  17110163  Trương Minh Khoa  Developer, Tester
-  17150086  Tôn Thất Tấn  Developer, Reporter
-  17110238  Pham Ngọc Tiến  Tester, Designer
+Group 9:
+  - 17110154  Đoàn Quốc Hùng  Team Leader,  Developer
+  - 17110163  Trương Minh Khoa  Developer, Tester
+  - 17150086  Tôn Thất Tấn  Developer, Reporter
+  - 17110238  Pham Ngọc Tiến  Tester, Designer
 
 
 # Sending-Temperature-and-Humidity-sensor-data-to-Firebase-Real-Time-Database-Phase-One
